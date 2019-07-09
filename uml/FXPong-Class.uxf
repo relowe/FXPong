@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>290</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+SolidObject
+-
+/+ getBounds() : BoundingBox/
+/+ detectCollision( other : SolidObject ) : bool/
+/+ handleCollision( other : SolidObject ) : void /
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>0</y>
+      <w>480</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>BoundingBox
+-
+- left : double
+- right : double
+- width : double
+- height : double
+-
++ BoundingBox( left : double, top : double, width : double, height : double )
++ getLeft() : double
++ getTop() : double
++ getWidth() : double
++ getHeight() : double
++ &lt;&lt;Static&gt;&gt; detectCollision( b1 : BoundingBox, b2 : Bonding Box ) : bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>260</y>
+      <w>280</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>javafx.scene.image.ImageView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>340</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Sprite
+-
++ Sprite()
++ &lt;&lt;Override&gt;&gt; getBounds() : BoundingBox
++ &lt;&lt;Override&gt;&gt; detectCollision( other : SolidObject ) : bool
++ &lt;&lt;Ovrride&gt;&gt; handleCollision( other : SolidObject ) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>280</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>80</x>
+      <y>120</y>
+      <w>90</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>70</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+creates</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>520</y>
+      <w>320</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>PhysicsSprite
+-
+- dx : double
+- dy : double
+- ax : double
+- ay : double
+-
++ PhysicsSprite()
++ getDx() : double
++ getDy() : double
++ getAx() : double
++ getAy() : double
++ setDx( dx : double ) : void
++ setDy( dy : double ) : void
++ setVelocity( dx : double, dy : double ) : void
++ setAcceleration( ax : double, ay : double ) : void
++ move( t : double ) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>440</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>940</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Paddle
+-
++ Paddle()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>800</y>
+      <w>370</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Ball
+-
++ Ball()
++ &lt;&lt;Override&gt;&gt; handleCollision( other : SolidObject ) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>510</y>
+      <w>360</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>ScoreBoard
+-
+- player1 : int
+- player2 : int
+- p1Digit : SevenSegmentDisplay[2]
+- p2Digit : SevenSegmentDisplay[2]
+-
++ ScoreBoard()
++ reset() : void
++ getPlayer1() : int
++ getPlayer2() : int
++ changePlayer1( delta : int ) : void
++ changePlayer2( delta : int ) : void
++ setPlayer1( score : int ) 
++ setPlayer2( score : int )
+# updateDigits( digit : SevenSegmentDisplay[])</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>310</y>
+      <w>290</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>SevenSegmentDisplay
+-
+- segment : bool[7]
+-
++ SevenSegmentDisplay()
++ setDigit( d : int ) : void
++ setSegment( num : int, state : bool ) : void
++ getSegment( num : int ) : bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>230</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>javafx.scene.layout.Pane</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>250</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>260</y>
+      <w>120</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=7</panel_attributes>
+    <additional_attributes>100.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>420</y>
+      <w>80</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>900</y>
+      <w>360</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>PlayerPaddle
+-
++ PlayerPaddle()
++ handleKeyboard(e : javafx.scene.input.KeyEvent)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>780</y>
+      <w>30</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>720</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>920</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>1000</y>
+      <w>360</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ComputerPaddle
+-
+- ball : Ball
+-
++ ComputerPaddle( ball : Ball )
++ &lt;&lt;Override&gt;&gt; move( t : double ) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>960</y>
+      <w>180</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>250</y>
+      <w>30</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>750</y>
+      <w>310</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>PongPane
+-
+- score : ScoreBoard
+- ball : Ball
+- player : PlayerPaddle
+- computer : ComputerPaddle
+- timer : javafx.animation.Timeline
+- limit : int
+- &lt;&lt;Static, Final&gt;&gt; FRAME_DURATION : double
+-
++ PongPane()
++ reset() : void
++ play() : void
++ pause() : void
++ getLimit() : int
++ setLimit( limit : int ) : void
++ isGameOver() : bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>640</y>
+      <w>300</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>280.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>890</x>
+      <y>250</y>
+      <w>410</w>
+      <h>520</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;390.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>790</y>
+      <w>290</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>270.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>810</y>
+      <w>300</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>280.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>820</y>
+      <w>300</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>280.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+</diagram>
